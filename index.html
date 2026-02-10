@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    body {
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); position: relative; overflow: hidden;
+      margin: 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 50px 60px;
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+    }
+    #yes {
+      background-color: #ff3b7f;
+      color: white;
+      margin-right: 20px;
+    }
+    #no {
+      background-color: #ccc;
+      position: absolute;
+      transition: left 0.35s ease, top 0.35s ease;
+    }
+      .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      
+    }
+
+    @keyframes rise {
+      0% { bottom: -50px; transform: translateX(0) scale(1); }
+      50% { transform: translateX(20px) scale(1.2); }
+      100% { transform: translateY(0); }
+    }
+
+    .hearts::before, .hearts::after {
+      content: "❤️";
+      position: absolute;
+      font-size: 40px;
+      animation: rise 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    .hearts::before {
+      left: 20%; animation-delay: 1s;
+    }
+
+    .hearts::after {
+      left: 70%; animation-delay: 3s;
+    }
+
+    @keyframes rise {
+      0% { bottom: -50px; transform: translateX(0) scale(1); }
+      50% { transform: translateX(20px) scale(1.2); }
+      100% { bottom: 110%; transform: translateX(-20px) scale(1); }
+    }
+      .orchids::before, .orchids::after {
+      content: "🌸";
+      position: absolute;
+      font-size: 45px;
+      animation: orchidRise 7s linear infinite;
+      opacity: 0.7;
+    }
+
+    .orchids::before {
+      left: 10%; animation-delay: 2s;
+    }
+
+    .orchids::after {
+      left: 80%; animation-delay: 4s;
+    }
+
+    @keyframes orchidRise {
+      0% { bottom: -60px; transform: translateX(0) scale(1); }
+      50% { transform: translateX(-25px) scale(1.3); }
+      100% { bottom: 110%; transform: translateX(20px) scale(1); }
+    }
+      .sunflowers::before, .sunflowers::after {
+      content: "🌻";
+      position: absolute;
+      font-size: 50px;
+      animation: sunflowerRise 8s linear infinite;
+      opacity: 0.75;
+    }
+
+    .sunflowers::before {
+      left: 30%; animation-delay: 1.5s;
+    }
+
+    .sunflowers::after {
+      left: 60%; animation-delay: 3.5s;
+    }
+
+    @keyframes sunflowerRise {
+      0% { bottom: -70px; transform: translateX(0) scale(1); }
+      50% { transform: translateX(30px) scale(1.25); }
+      100% { bottom: 110%; transform: translateX(-25px) scale(1); }
+    }
+      
+    .purple-orchids::before {
+      left: 25%; animation-delay: 2.2s;
+    }
+
+    .purple-orchids::after {
+      left: 75%; animation-delay: 4.4s;
+    }
+
+    @keyframes purpleOrchidRise {
+      0% { bottom: -65px; transform: translateX(0) scale(1); }
+      50% { transform: translateX(15px) scale(1.35); }
+      100% { bottom: 110%; transform: translateX(-15px) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>You're already my wife… but will you also be my Valentine? Pretty please, my sweet Mochu?❤️</h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('no');
+    const yesBtn = document.getElementById('yes');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+
+    function moveNoButton() {
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+      const maxX = window.innerWidth - btnWidth - 20;
+      const maxY = window.innerHeight - btnHeight - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton);
+
+    yesBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  </script>
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+  <div class="orchids"></div>
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+  <div class="orchids"></div>
+  <div class="sunflowers"></div>
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+  <div class="orchids"></div>
+  <div class="hearts"></div>
+  <div class="hearts"></div>
+  <div class="orchids"></div>
+  <div class="sunflowers"></div>
+  
+  <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+    <div style="background:white; padding:30px; border-radius:20px; text-align:center; font-family:'Lato', sans-serif;">
+      <h2>Thank you, my Valentine! ❤️</h2>
+      <button id="closeModal" style="margin-top:15px; padding:10px 20px; border:none; background:#ff3b7f; color:white; border-radius:10px; cursor:pointer;">Close</button>
+    </div>
+  </div>
+</body>
+</html>
